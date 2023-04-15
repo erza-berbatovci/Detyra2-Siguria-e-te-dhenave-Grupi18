@@ -38,7 +38,35 @@ namespace _3DES
             return Convert.ToBase64String(MyresultArray, 0,MyresultArray.Length); 
 
         }
+        
+         public static string Decrypt(string TextToDecrypt)
+        {
+            byte[] MyDecryptArray=Convert.FromBase64String
+            (TextToDecrypt);
+
+            MD5CryptoServiceProvider MyMD5CryptoService.ComputeHash
+            (UTF8Encoding.UTF8.GetBytes(securityKey));
+
+            MyMD5CryptoService.Clear();
+
+            var MyTripleDESCryptoService=new TripleDESCryptoServiceProvider();
+            MyTripleDESCryptoService.Key=MysecurityKeyArray;
+            MyTripleDESCryptoService.Mode=CipherMode.ECB;
+            MyTripleDESCryptoService.Padding=PaddingMode.PKCS7;
+
+            var MyCryptoTransform=MyTripleDESCryptoService.CreateDecryptor();
+            byte[] MyresultArray=MyCryptoTransform.TransformFinalBlock(MyDecryptArray,0,MyDecryptArray.Length);
+
+            MyTripleDESCryptoService.Clear();
+
+            return UTF8Encoding.UTF8.GetString(MyresultArray);
+
+
+
+
+        }
 
 
     }
 }
+
