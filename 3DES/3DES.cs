@@ -31,7 +31,11 @@ namespace _3DES
 
             byte[] MyresultArray = MyCryptoTransform
                 .TransformFinalBlock(MyEncryptedArray, 0,
-                MyEncryptedArray.Length); 
+                MyEncryptedArray.Length);
+
+            MyTripleDESCryptoService.Clear();
+
+            return Convert.ToBase64String(MyresultArray, 0,MyresultArray.Length); ;
 
         }
 
