@@ -9,6 +9,7 @@ namespace TripleDes {
         static void Main(string[] args) {
             Console.WriteLine("Do you want to encrypt text or file? ");
             string input = Console.ReadLine();
+            input = input.ToLower();
         }
     }
 }
