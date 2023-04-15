@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System; 
 using System.Security.Cryptography;
 using System.Text;
 
@@ -35,7 +35,7 @@ namespace _3DES
 
             MyTripleDESCryptoService.Clear();
 
-            return Convert.ToBase64String(MyresultArray, 0,MyresultArray.Length); ;
+            return Convert.ToBase64String(MyresultArray, 0,MyresultArray.Length); 
 
         }
 
