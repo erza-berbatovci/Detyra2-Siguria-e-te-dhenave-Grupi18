@@ -1,14 +1,71 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
-using _3DES;
+using System;
 using System.Security.Cryptography;
+using System.Text;
 
-namespace TripleDes {
-    class Program {
-        static void Main(string[] args) {
-            Console.WriteLine("Do you want to encrypt text or file? ");
-            string input = Console.ReadLine();
+namespace _3DES
+{
+    public class TripleDes
+    {
+        private const string securityKey = "DataSecurity3DES";
+        public static string Encrypt(string TextToEncrypt)
+        {
+            string encryptedText = "";
+            byte[] MyEncryptedArray = UTF8Encoding.UTF8.GetBytes(TextToEncrypt);
+            MD5CryptoServiceProvider MyMD5CryptoService = new MD5CryptoServiceProvider();
+
+            byte[] MysecurityKeyArray = MyMD5CryptoService.ComputeHash
+                (UTF8Encoding.UTF8.GetBytes(securityKey));
+            MyMD5CryptoService.Clear();
+
+            var MyTripleDESCryptoService = new
+                TripleDESCryptoServiceProvider();
+
+            MyTripleDESCryptoService.Key = MysecurityKeyArray;
+
+            MyTripleDESCryptoService.Mode = CipherMode.ECB;
+
+            MyTripleDESCryptoService.Padding = PaddingMode.PKCS7;
+
+            var MyCryptoTransform = MyTripleDESCryptoService
+                .CreateEncryptor();
+
+            byte[] MyresultArray = MyCryptoTransform
+                .TransformFinalBlock(MyEncryptedArray, 0,
+                MyEncryptedArray.Length);
+
+            MyTripleDESCryptoService.Clear();
+
+            return Convert.ToBase64String(MyresultArray, 0,MyresultArray.Length); ;
+
         }
+
+        public static string Decrypt(string TextToDecrypt)
+        {
+            byte[] MyDecryptArray=Convert.FromBase64String
+            (TextToDecrypt);
+
+            MD5CryptoServiceProvider MyMD5CryptoService.ComputeHash
+            (UTF8Encoding.UTF8.GetBytes(securityKey));
+
+            MyMD5CryptoService.Clear();
+
+            var MyTripleDESCryptoService=new TripleDESCryptoServiceProvider();
+            MyTripleDESCryptoService.Key=MysecurityKeyArray;
+            MyTripleDESCryptoService.Mode=CipherMode.ECB;
+            MyTripleDESCryptoService.Padding=PaddingMode.PKCS7;
+
+            var MyCryptoTransform=MyTripleDESCryptoService.CreateDecryptor();
+            byte[] MyresultArray=MyCryptoTransform.TransformFinalBlock(MyDecryptArray,0,MyDecryptArray.Length);
+
+            MyTripleDESCryptoService.Clear();
+
+            return UTF8Encoding.UTF8.GetString(MyresultArray);
+
+
+
+
+        }
+
+
     }
 }
