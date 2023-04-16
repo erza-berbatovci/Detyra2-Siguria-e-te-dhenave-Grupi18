@@ -18,15 +18,28 @@ The program then prompts the user to decide whether to continue running the prog
 
 
 
+To run the C# code, you will need a development environment such as Visual Studio or .NET Core installed on your computer. Here are the steps to run the code:
 
-To run this C# code, you will need a development environment such as Visual Studio or .NET Core installed on your computer. Here are the steps to run the code:
+1. Open a text editor (such as Notepad) or your development environment.
+2. Copy and paste the code into the text editor.
+3. Save the file with a ".cs" extension (e.g., TripleDES.cs).
+4. Open the command prompt or terminal on your computer.
+5. Navigate to the directory where you saved the file using the "cd" command.
+6. Compile the code by entering the command "csc TripleDES.cs" in the command prompt.
+7. Run the program by entering the command "TripleDES.exe" in the command prompt.
+8. Follow the instructions on the console to encrypt and decrypt text or a file using TripleDES.
+9. To exit the program, enter "n" when prompted to continue the execution.
 
-Open a text editor (such as Notepad) or your development environment.
-Copy and paste the code into the text editor.
-Save the file with a ".cs" extension (e.g., TripleDES.cs).
-Open the command prompt or terminal on your computer.
-Navigate to the directory where you saved the file using the "cd" command.
-Compile the code by entering the command "csc TripleDES.cs" in the command prompt.
-Run the program by entering the command "TripleDES.exe" in the command prompt.
-Follow the instructions on the console to encrypt and decrypt text or a file using TripleDES.
-To exit the program, enter "n" when prompted to continue the execution.
+
+To run the python code, you will need a development environment such as Visual Studio installed on your computer. Here are the steps to run the code:
+
+1. Install the PyCryptodome library: You can install the library using pip by running the command pip install pycryptodome.
+2. Open a text editor of your choice (e.g. Visual Studio Code, Sublime Text, Notepad++, etc.) and copy-paste the entire code into a new file.
+3. Save the file with a name of your choice and the .py file extension (e.g. encryption.py).
+4. Open a terminal or command prompt and navigate to the directory where you saved the Python file using the cd command.
+5. Type python3 encryption.py (or python encryption.py depending on your Python installation) and press enter.
+6. The program will ask you whether you want to encrypt a message or a file. Type message or file (without the quotes) and press enter.
+7. Depending on your choice, the program will prompt you to enter the message or the filename to encrypt. Follow the prompts and enter the required information.
+8. The program will encrypt the message or file and display the original message, the encrypted message, and the decrypted message.
+9. Repeat steps 6-8 as desired.
+10. To exit the program, type exit when prompted whether to encrypt a message or a file.
