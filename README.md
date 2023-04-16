@@ -43,3 +43,6 @@ To run the python code, you will need a development environment such as Visual S
 8. The program will encrypt the message or file and display the original message, the encrypted message, and the decrypted message.
 9. Repeat steps 6-8 as desired.
 10. To exit the program, type exit when prompted whether to encrypt a message or a file.
+
+
+This project is made in Data Security Course in FIEK by Erza Merovci,Erza Berbatovci,Ermal Limaj,Esra Qerimi.
